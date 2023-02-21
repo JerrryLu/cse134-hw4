@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Jerry Lu">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jerry Lu's Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/browserStyle.css" media="(min-width: 640px)">
+    <link rel="stylesheet" href="css/mobileStyle.css" media="(max-width: 639.9px)">
+    <link rel="preload" href="/fonts/kaushanscript-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/RoSpritendoSemiboldBeta-vmVwZ.otf" as="font" type="font/otf" crossorigin>
+  </head>
+  
+  <body>
+
+    <header>
+      <h1>Projects</h1>
+      <nav>
+        <ul class="navBar">
+          <li><a href="index.html">Home</a></li>
+          <li id="activePage"><a href="projects.html">Projects</a></li> 
+          <li><a href="education.html">Education</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+
+    <div class="mainContent">
+
+    <main>
+      <section id="zesty">
+        <!--Chef Hat from https://cdn.iconscout.com/icon/free/png-256/chef-hat-2216706-1857400.png?f=webp&w=256-->
+        <h2><img src="images/chef_hat.webp" alt="Icon of a chef's hat"> Zesty Recipe Manager:</h2>
+        <a href="https://lucid-borg-00ad57.netlify.app/">Link to the website</a>
+        <ul>
+          <li>Worked on a team of 8 practicing Agile to design a recipe manager that allows users to save, filter, and edit recipes scraped from the web with an API or create their own.</li>
+          <li>Utilized <code>localStorage</code> and <code>JSON</code> methods such as stringify to store recipe objects as strings.</li>
+        </ul>
+        <br>
+        <picture>
+          <source media="(min-width:640px)" srcset="images/zesty_browser.webp">
+          <img src="images/zesty_mobile.webp" alt="Screenshot of the Zesty Recipe Manager">
+        </picture>
+      </section>
+      
+      <br>
+
+      <section id="congress">
+        <!--Paper and Quill from https://www.seekpng.com/png/detail/16-165940_scrolled-paper-and-quill-pen-png-clipart-image.png-->
+        <h2><img src="images/paper_quill.webp" alt="Icon of a paper and quill"> Git for Congress:</h2>
+        <a href="https://github.com/twojineric/Git-For-Congress">Link to the Github Repository</a>
+        <ul>
+          <li>Worked on a team of 3 to create a file control system for government bills.</li>
+          <li>Used machine learning to classify edits to documents.</li>
+        </ul>
+        <picture>
+          <source media="(min-width:640px)" srcset="images/git_congress_browser.webp">
+          <img src="images/git_congress_mobile.webp" alt="Screenshot of git for congress">
+        </picture>
+      </section>
+    </main>
+
+    <footer>
+      <br>
+      <hr>
+      <nav>
+        <a href="contact.html"><b>Contact me!</b></a>
+      </nav>
+    </footer>
+    
+    </div>
+
+  </body>
+
+</html>

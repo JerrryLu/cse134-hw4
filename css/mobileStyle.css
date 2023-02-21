@@ -1,0 +1,61 @@
+:root {
+  --nav-bar-height: 10vw;
+  --nav-bar-width: 75vw;
+}
+
+body {
+  flex-direction: column;
+}
+
+header {
+  flex-direction: row;
+  height: var(--nav-bar-height);
+  font-size: calc(var(--nav-bar-height)/4);
+}
+
+section picture img {
+  width: 70vw;
+}
+
+img[src="images/Jerry_Lu_Face.jpg"] {
+  width: 50vw;
+}
+
+header h1 {
+  margin: 0;
+  width: calc(100vw - var(--nav-bar-width));
+  text-align: center;
+  font-size: calc(var(--nav-bar-height)/3);
+}
+
+img[src="images/Jerry_Lu_Face.jpg"] {
+  display: block;
+  margin: auto;
+}
+
+picture img {
+  display: block;
+  margin: auto;
+}
+
+.mainContent {
+  margin: 2vw 5vw 4vh 5vw;
+}
+
+.navBar {
+  flex-direction: row;
+  margin: 0;
+  width: var(--nav-bar-width);
+  height: var(--nav-bar-height);
+  padding: 0;
+}
+
+.navBar li {
+  width: calc(var(--nav-bar-width)/5);
+}
+
+.navBar li a {
+  text-align: center;
+  height: var(--nav-bar-height);
+  line-height: var(--nav-bar-height);
+}

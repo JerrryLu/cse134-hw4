@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Jerry Lu">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jerry Lu's Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/browserStyle.css" media="(min-width: 640px)">
+    <link rel="stylesheet" href="css/mobileStyle.css" media="(max-width: 639.9px)">
+    <link rel="preload" href="/fonts/kaushanscript-regular.woff2" as="font" type="font/woff2" crossorigin>
+  </head>
+  
+  <body>
+
+    <header>
+      <h1>Contact</h1>
+      <nav>
+        <ul class="navBar">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="projects.html">Projects</a></li> 
+          <li><a href="education.html">Education</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li id="activePage"><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="mainContent">
+
+    <main>
+      <div class="contactInfo">
+        <!--Email icon from https://iconarchive.com/show/100-flat-2-icons-by-graphicloads/email-icon.html-->
+        <p><img src="images/email.webp" alt="Envelope in circle icon">Email: <a href="mailto:jcl010@ucsd.edu">jcl010@ucsd.edu</a></p>
+        <!--Github logo from https://cdn.iconscout.com/icon/free/png-256/github-3691248-3073768.png?f=webp&w=256-->
+        <p><img src="images/github.webp" alt="Github logo">Github: <a href="https://github.com/JerrryLu">https://github.com/JerrryLu</a></p>
+      </div>
+      <br>
+      <form id="contForm" action="contact.html" method="get" target="_blank">
+        <fieldset>
+          <legend>Contact Me!</legend>
+          <label for="fname">First Name:</label><br>
+          <input type="text" id="fname"><br>
+          <label for="email">Email:</label><br>
+          <input type="email" id="email"><br>
+          <label for="inquiries">Inquiry Type:</label><br>
+          <select id="inquiries">
+            <option value="Question">Question</option>
+            <option value="Comment">Comment</option>
+            <option value="Networking">Networking</option>
+            <option value="Other">Other</option>
+          </select><br>
+          <label for="message">Message:</label><br>
+          <textarea id="message" name="message"></textarea>
+          <br><br>
+          <button type="submit" form="contForm" value="Submit">Submit</button>
+        </fieldset>
+      </form>
+    </main>
+
+    </div>
+    
+  </body>
+
+</html>

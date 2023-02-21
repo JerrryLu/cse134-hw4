@@ -1,0 +1,134 @@
+:root {
+  --nav-color: #d7e1fa;
+  --pic-border-color: #724b4b;
+  --active-page-color: #7da2ff;
+  --box-shadow-color: #b2b1b1;
+}
+
+@font-face {
+  font-family: kaushan;
+  src: url("../fonts/kaushanscript-regular.woff2") format("woff");
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: nintendo;
+  src: url("../fonts/RoSpritendoSemiboldBeta-vmVwZ.otf") format("opentype");
+  font-display: fallback;
+}
+
+@keyframes shake {
+  0% {transform: rotate(0deg);}
+  20% {transform: rotate(-3deg);}
+  40% {transform: rotate(3deg);}
+  60% {transform: rotate(-2deg);}
+  80% {transform: rotate(2deg);}
+  100% {transform: rotate(0deg);}
+}
+
+body {
+  display: flex;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+}
+
+header {
+  display: flex;
+  align-items: center; 
+  background-color: var(--nav-color);
+  top: 0;
+  position: sticky;
+}
+
+header h1 {
+  font-family: kaushan, "mv boli", cursive;
+  animation: shake 1s;
+}
+
+h2 {
+  font-family: nintendo, Arial, Helvetica, sans-serif;
+}
+
+details {
+  margin-bottom: 2vh;
+}
+
+picture img, img[src="images/Jerry_Lu_Face.jpg"] {
+  border: 10px solid var(--pic-border-color);
+  border-style: outset double;
+  box-shadow: -3px 3px 6px 3px var(--box-shadow-color);
+  transition: box-shadow 0.3s ease;
+}
+
+picture img:hover, img[src="images/Jerry_Lu_Face.jpg"]:hover {
+  box-shadow: 0px 0px 6px 3px var(--box-shadow-color);
+}
+
+section picture img {
+  display: block;
+  text-align: center;
+  margin: auto;
+}
+
+h2 img {
+  width: 2em;
+  height: 2em;
+}
+
+li span {
+  font-style: italic;
+  font-weight: bold;
+}
+
+summary img, p img {
+  width: 3em;
+  height: 3em;
+  margin-bottom: -0.5em;
+  margin-right: 0.5em;
+}
+
+img[src="images/ucsd.webp"] {
+  width: 4em;
+  height: 4em;
+}
+
+main {
+  flex: 1 1 0;
+}
+
+#activePage {
+  font-weight: bold;
+  background-color: var(--active-page-color);
+  pointer-events: none;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+}
+
+.navBar {
+  display: flex;
+  list-style-position: outside;
+  list-style-type: none;
+}
+
+.navBar li {
+  text-align: center;
+  margin: 0;
+  background: linear-gradient(to right, white 50%, transparent 50%) right;
+  background-size: 200% 100%;
+  transition: background 0.1s ease;
+}
+
+.navBar li:hover {
+  background-position: left;
+}
+
+.navBar li a {
+  display: block;
+  color: black;
+  text-decoration: none;
+}
