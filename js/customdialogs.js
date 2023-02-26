@@ -42,7 +42,10 @@ function alert_message() {
     dialog_para.innerHTML = "";
     input_field.value = "";
     output_element.innerHTML = "";
-  }, {once: true});
+
+    // Use cloning to remove event listeners
+    remove_listener();
+  });
 }
 
 function confirm_message() {  
@@ -76,7 +79,10 @@ function confirm_message() {
     dialog_para.innerHTML = "";
     input_field.value = "";
     output_element.innerHTML = "The value returned by the confirm method is : true";
-  }, {once: true});
+
+    // Use cloning to remove event listeners
+    remove_listener();
+  });
 
   // Undo everything and make output false
   let cancel_button = dialog_buttons[1];
@@ -91,7 +97,10 @@ function confirm_message() {
     dialog_para.innerHTML = "";
     input_field.value = "";
     output_element.innerHTML = "The value returned by the confirm method is : false";
-  }, {once: true});
+
+    // Use cloning to remove event listeners
+    remove_listener();
+  });
 }
 
 function prompt_message() {
@@ -127,7 +136,10 @@ function prompt_message() {
     else {
       output_element.innerHTML = `Hello, ${name_val}! How are you?`;
     }
-  }, {once: true});
+
+    // Use cloning to remove event listeners
+    remove_listener();
+  });
 
   // Undo everything and make output based on empty response
   let cancel_button = dialog_buttons[1];
@@ -139,19 +151,10 @@ function prompt_message() {
     input_field.value = "";
     dialog_para.innerHTML = "";
     output_element.innerHTML = "User didn't enter anything";
-  }, {once: true});
-}
 
-function popup_edit() {
-  // Display the dialog element and make everything else dim
-  let dialog_element = document.querySelector("dialog");
-  dialog_element.setAttribute("open", "");
-  opacity_change(0.5);
-
-  // Make only the dialog element clickable
-  dialog_element.style.pointerEvents = "all";
-  let body_element = document.querySelector("body");
-  body_element.style.pointerEvents = "none";  
+    // Use cloning to remove event listeners
+    remove_listener();
+  });
 }
 
 function undo_changes() {
@@ -169,25 +172,55 @@ function undo_changes() {
   opacity_change(1);
 }
 
-function opacity_change(opacity) {
-  let buttons = document.querySelectorAll("main > button");
+export function popup_edit() {
+  // Display the dialog element and make everything else dim
+  let dialog_element = document.querySelector("dialog");
+  dialog_element.setAttribute("open", "");
+  opacity_change(0.5);
+
+  // Make only the dialog element clickable
+  dialog_element.style.pointerEvents = "all";
+  let body_element = document.querySelector("body");
+  body_element.style.pointerEvents = "none";  
+}
+
+export function opacity_change(opacity) {
+  let main_element = document.querySelector("main");
   let header_element = document.querySelector("header");
-  let output_element = document.querySelector("output");
 
   if(opacity == 1) {
     // Undim
-    for(let i = 0; i < buttons.length; i++) {
-      buttons[i].removeAttribute("style");
+    for(let i = 0; i < main_element.children.length; i++) {
+      if(main_element.children[i].nodeName == "DIALOG") {
+        continue;
+      }
+      else {
+        main_element.children[i].removeAttribute("style");
+      }
     }
     header_element.removeAttribute("style");
-    output_element.removeAttribute("style");
   }
   else {
     // Dim
-    for(let i = 0; i < buttons.length; i++) {
-      buttons[i].style.opacity = opacity;
+    for(let i = 0; i < main_element.children.length; i++) {
+      if(main_element.children[i].nodeName == "DIALOG") {
+        continue;
+      }
+      else {
+        main_element.children[i].style.opacity = opacity;
+      }
     }
     header_element.style.opacity = opacity;
-    output_element.style.opacity = opacity;
   }
+}
+
+export function remove_listener() {
+  let dialog_buttons = document.querySelectorAll("dialog button");
+  let ok_button = dialog_buttons[0];
+  let cancel_button = dialog_buttons[1];
+
+  // Cloning clones everything except event listeners
+  // We then replace the original with the clone
+  ok_button.replaceWith(ok_button.cloneNode(true));
+  cancel_button.replaceWith(cancel_button.cloneNode(true));
 }

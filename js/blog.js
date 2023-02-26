@@ -1,3 +1,5 @@
+import {remove_listener, opacity_change, popup_edit} from './customdialogs.js';
+
 window.onload = main;
 
 let post_arr = [];
@@ -76,12 +78,22 @@ function add_row() {
     let row_summary = textarea_element.value;
     row_summary = DOMPurify.sanitize(row_summary, {ALLOWED_TAGS: []});
 
-    console.log(row_title.value);
-    console.log(row_date.value);
-    console.log(row_summary.value);
+    // if none of the fields are empty, add to table and row
+    if(!(row_title == "" || row_date == "" || row_summary == "")) {
+      let num_id = Date.now();
+      add_rows_table(num_id, row_title, row_date, row_summary);
+      post_arr.push({num_id: num_id, 
+                     title: row_title, 
+                     date: row_date, 
+                     summary: row_summary});
+    }
 
+    // Undo changes common for edit, add, and delete
     undo_changes();
-  }, {once: true});
+
+    // Use cloning to remove event listeners
+    remove_listener();
+  });
 
   // Undo everything with no changes
   let cancel_button = dialog_buttons[1];
@@ -123,11 +135,20 @@ function edit_row(row) {
 
     // Undo changes common for edit, add, and delete
     undo_changes();
-  }, {once: true});
+
+    // Use cloning to remove event listeners
+    remove_listener();
+  });
 
   // Undo everything with no changes
   let cancel_button = dialog_buttons[1];
-  cancel_button.addEventListener('click', undo_changes, {once: true});
+  cancel_button.addEventListener('click', () => {
+    // Undo changes common for edit, add, and delete
+    undo_changes();
+
+    // Use cloning to remove event listeners
+    remove_listener();
+  });
 }
 
 function delete_row(row) {
@@ -168,7 +189,10 @@ function delete_row(row) {
 
     // Undo changes common for edit, add, and delete
     undo_changes();
-  }, {once: true});
+
+    // Use cloning to remove event listeners
+    remove_listener();
+  });
 
   // Undo everything with no changes
   let cancel_button = dialog_buttons[1];
@@ -183,7 +207,10 @@ function delete_row(row) {
 
     // Undo changes common for edit, add, and delete
     undo_changes();
-  }, {once: true});
+
+    // Use cloning to remove event listeners
+    remove_listener();
+  });
 }
 
 function delete_from_array(num_id) {
@@ -206,18 +233,6 @@ function edit_array(num_id, title, date, summary) {
   }
 }
 
-function popup_edit() {
-  // Display the dialog element and make everything else dim
-  let dialog_element = document.querySelector("dialog");
-  dialog_element.setAttribute("open", "");
-  opacity_change(0.5);
-
-  // Make only the dialog element clickable
-  dialog_element.style.pointerEvents = "all";
-  let body_element = document.querySelector("body");
-  body_element.style.pointerEvents = "none";  
-}
-
 function undo_changes() {
   let dialog_element = document.querySelector("dialog");
   let body_element = document.querySelector("body");
@@ -238,23 +253,4 @@ function undo_changes() {
 
   // Undim everything
   opacity_change(1);
-}
-
-function opacity_change(opacity) {
-  let button_element = document.querySelector("main > button");
-  let table_element = document.querySelector("main table");
-  let header_element = document.querySelector("header");
-
-  if(opacity == 1) {
-    // Undim
-    button_element.removeAttribute("style");
-    table_element.removeAttribute("style");
-    header_element.removeAttribute("style");
-  }
-  else {
-    // Dim
-    button_element.style.opacity = opacity;
-    table_element.style.opacity = opacity;
-    header_element.style.opacity = opacity;
-  }
 }

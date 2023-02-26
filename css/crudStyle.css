@@ -1,0 +1,8 @@
+table, th, td {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+dialog input, dialog textarea {
+  display: block;
+}
