@@ -44,6 +44,7 @@ header {
 header h1 {
   font-family: kaushan, "mv boli", cursive;
   animation: shake 1s;
+  text-align: center;
 }
 
 h2 {
@@ -52,6 +53,15 @@ h2 {
 
 details {
   margin-bottom: 2vh;
+}
+
+table, th, td {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+dialog input, dialog textarea {
+  display: block;
 }
 
 picture img, img[src="images/Jerry_Lu_Face.jpg"] {

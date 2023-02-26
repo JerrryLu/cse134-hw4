@@ -11,15 +11,17 @@
     <link rel="stylesheet" href="css/browserStyle.css" media="(min-width: 640px)">
     <link rel="stylesheet" href="css/mobileStyle.css" media="(max-width: 639.9px)">
     <link rel="preload" href="/fonts/kaushanscript-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <script src="js/nativedialogs.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.0/purify.min.js"></script>
   </head>
   
   <body>
 
     <header>
-      <h1>Jerry Lu</h1>
+      <h1>Native Dialog</h1>
       <nav>
         <ul class="navBar">
-          <li id="activePage"><a href="index.html">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="projects.html">Projects</a></li> 
           <li><a href="education.html">Education</a></li>
           <li><a href="skills.html">Skills</a></li>
@@ -31,22 +33,15 @@
     <div class="mainContent">
       
     <main>
-      <img src="images/Jerry_Lu_Face.jpg" alt="Jerry's face">
-      <p>Hi, I'm a fourth year Computer Engineering major in Warren. I really enjoy learning about how the programs I use or the games I play work. I like <code>JavaScript</code> as a language because I've been using it a lot recently.</p>
-      <br>
-      <aside><i>Fun Fact:</i> The first language I used was <code>LUA</code>.</aside>
-      <a href="nativedialogs.html">HW4 Native Dialogs</a><br>
-      <a href="customdialogs.html">HW4 Custom Dialogs</a><br>
-      <a href="crud.html">HW4 CRUD</a>
+      <button id="alert" type="button">Alert</button>
+      <button id="confirm" type="button">Confirm</button>
+      <button id="prompt" type="button">Prompt</button>
+      <button id="safer_prompt" type="button">Safer Prompt</button><hr><br>
+      <output></output>
     </main>
 
     <footer>
-      <br>
-      <hr>
-      <nav>
-        <a href="contact.html"><b>Contact me!</b></a>
-      </nav>
-      <br>
+
     </footer>
 
     </div>
