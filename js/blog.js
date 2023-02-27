@@ -1,4 +1,4 @@
-import {remove_listener, opacity_change, popup_edit} from './customdialogs.js';
+import {opacity_change, popup_edit} from './customdialogs.js';
 
 window.onload = main;
 
@@ -80,8 +80,7 @@ function add_row() {
 
   // Add row to table and array
   let ok_button = dialog_buttons[0];
-  ok_button.addEventListener('click', () => {
-
+  let ok_add_func = () => {
     let row_title = input_elements[0].value;
     let row_date = input_elements[1].value;
     let row_summary = textarea_element.value;
@@ -107,13 +106,23 @@ function add_row() {
     // Undo changes common for edit, add, and delete
     undo_changes();
 
-    // Use cloning to remove event listeners
-    remove_listener();
-  });
+    // Remove event listeners
+    ok_button.removeEventListener('click', ok_add_func);
+    cancel_button.removeEventListener('click', cancel_add_func);
+  };
+  ok_button.addEventListener('click', ok_add_func);
 
   // Undo everything with no changes
   let cancel_button = dialog_buttons[1];
-  cancel_button.addEventListener('click', undo_changes, {once: true});
+  let cancel_add_func = () => {
+    // Undo changes common for edit, add, and delete
+    undo_changes();
+
+    // Remove event listeners
+    ok_button.removeEventListener('click', ok_add_func);
+    cancel_button.removeEventListener('click', cancel_add_func);
+  };
+  cancel_button.addEventListener('click', cancel_add_func);
 }
 
 function edit_row(row) {
@@ -138,7 +147,7 @@ function edit_row(row) {
 
   // Edit the data in the row and array
   let ok_button = dialog_buttons[0];
-  ok_button.addEventListener('click', () => {
+  let ok_edit_func = () => {
     let row_title = input_elements[0].value;
     let row_date = input_elements[1].value;
     let row_summary = textarea_element.value;
@@ -161,19 +170,23 @@ function edit_row(row) {
     // Undo changes common for edit, add, and delete
     undo_changes();
 
-    // Use cloning to remove event listeners
-    remove_listener();
-  });
+    // Remove event listeners
+    ok_button.removeEventListener('click', ok_edit_func);
+    cancel_button.removeEventListener('click', cancel_edit_func);
+  };
+  ok_button.addEventListener('click', ok_edit_func);
 
   // Undo everything with no changes
   let cancel_button = dialog_buttons[1];
-  cancel_button.addEventListener('click', () => {
+  let cancel_edit_func = () => {
     // Undo changes common for edit, add, and delete
     undo_changes();
 
-    // Use cloning to remove event listeners
-    remove_listener();
-  });
+    // Remove event listeners
+    ok_button.removeEventListener('click', ok_edit_func);
+    cancel_button.removeEventListener('click', cancel_edit_func);
+  };
+  cancel_button.addEventListener('click', cancel_edit_func);
 }
 
 function delete_row(row) {
@@ -199,7 +212,7 @@ function delete_row(row) {
 
   // Delete from array and table
   let ok_button = dialog_buttons[0];
-  ok_button.addEventListener('click', () => {
+  let ok_delete_func = () => {
     // Delete row from table and array
     delete_from_array(row.getAttribute("data-num_id"));
     row.remove(); 
@@ -215,13 +228,15 @@ function delete_row(row) {
     // Undo changes common for edit, add, and delete
     undo_changes();
 
-    // Use cloning to remove event listeners
-    remove_listener();
-  });
+    // Remove event listeners
+    ok_button.removeEventListener('click', ok_delete_func);
+    cancel_button.removeEventListener('click', cancel_delete_func);
+  };
+  ok_button.addEventListener('click', ok_delete_func);
 
   // Undo everything with no changes
   let cancel_button = dialog_buttons[1];
-  cancel_button.addEventListener('click', () => {
+  let cancel_delete_func = () => {
     // Undo changes specific to delete
     label_elements[0].innerHTML = "Post Title:";
     label_elements[1].removeAttribute("style");
@@ -233,9 +248,11 @@ function delete_row(row) {
     // Undo changes common for edit, add, and delete
     undo_changes();
 
-    // Use cloning to remove event listeners
-    remove_listener();
-  });
+    // Remove event listeners
+    ok_button.removeEventListener('click', ok_delete_func);
+    cancel_button.removeEventListener('click', cancel_delete_func);
+  };
+  cancel_button.addEventListener('click', cancel_delete_func);
 }
 
 function delete_from_array(num_id) {
