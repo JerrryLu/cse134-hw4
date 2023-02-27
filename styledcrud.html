@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Jerry Lu">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jerry Lu's Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/crudStyle.css">
+    <link rel="preload" href="/fonts/RoSpritendoSemiboldBeta-vmVwZ.otf" as="font" type="font/otf" crossorigin>
+    <script type="module" src="js/blog.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.0/purify.min.js"></script>
+  </head>
+  
+  <body>
+
+    <header>
+      <h1>Blog</h1>
+    </header>
+
+    <div class="mainContent">
+      
+    <main>
+      <table>
+        <colgroup>
+          <col class="title">
+          <col class="date">
+          <col class="summary">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Post Title</th>
+            <th>Post Date</th>
+            <th>Post Summary</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+      <br>
+      <button>Add Post</button><br>
+
+      <dialog>
+        <form onsubmit="return false;">
+          <h1>Delete</h1>
+          <label for="title">Post Title:</label>
+          <input type="text" id="title" name="title">
+          <label for="date">Post Date:</label>
+          <input type="date" id="date" name="date">
+          <label for="summary">Post Summary:</label>
+          <textarea id="summary" name="summary"></textarea><br>
+          <button type="submit">OK</button>
+          <button>Cancel</button>
+        </form>
+      </dialog>
+    </main>
+
+    <footer>
+
+    </footer>
+
+    </div>
+
+  </body>
+
+</html>

@@ -1,8 +1,44 @@
-table, th, td {
-  border: 1px solid black;
-  padding: 5px;
+:root {
+  --table-head-color: #7da2ff;
 }
 
-dialog input, dialog textarea {
+@font-face {
+  font-family: nintendo;
+  src: url("../fonts/RoSpritendoSemiboldBeta-vmVwZ.otf") format("opentype");
+  font-display: fallback;
+}
+
+h1 {
+  font-family: nintendo, Arial, Helvetica, sans-serif;
+}
+
+table {
+  border-spacing: 0px;
+  max-width: 90vw;
+}
+
+th {
+  background-color: var(--table-head-color);
+}
+
+.summary {
+  column-width: 70vw;
+}
+
+td:hover {
+  background-color:antiquewhite;
+}
+
+dialog input {
+  margin-bottom: 2vh;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 5px;
+  word-wrap: break-word;
+}
+
+label, dialog input, dialog textarea {
   display: block;
 }
