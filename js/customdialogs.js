@@ -73,7 +73,6 @@ function prompt_message() {
   dialog_para.innerHTML = "What is your name?";
 
   let dialog_buttons = document.querySelectorAll("dialog button");
-  let input_field = document.querySelector("dialog input");
 
   // Undo everything and sanitize and display input
   let ok_button = dialog_buttons[0];
@@ -206,7 +205,7 @@ function cancel_prompt() {
   cancel_button.removeEventListener('click', cancel_prompt);
 }
 
-function undo_changes() {
+export function undo_changes() {
   let dialog_element = document.querySelector("dialog");
   let body_element = document.querySelector("body");
 

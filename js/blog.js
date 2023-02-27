@@ -1,4 +1,4 @@
-import {opacity_change, popup_edit} from './customdialogs.js';
+import {opacity_change, popup_edit, undo_changes} from './customdialogs.js';
 
 window.onload = main;
 
@@ -106,7 +106,7 @@ function add_row() {
     save_array();
 
     // Undo changes common for edit, add, and delete
-    undo_changes();
+    undo_changes_blog();
 
     // Remove event listeners
     ok_button.removeEventListener('click', ok_add_func);
@@ -118,7 +118,7 @@ function add_row() {
   let cancel_button = dialog_buttons[1];
   let cancel_add_func = () => {
     // Undo changes common for edit, add, and delete
-    undo_changes();
+    undo_changes_blog();
 
     // Remove event listeners
     ok_button.removeEventListener('click', ok_add_func);
@@ -170,7 +170,7 @@ function edit_row(row) {
     row.children[2].innerHTML = row_summary;
 
     // Undo changes common for edit, add, and delete
-    undo_changes();
+    undo_changes_blog();
 
     // Remove event listeners
     ok_button.removeEventListener('click', ok_edit_func);
@@ -182,7 +182,7 @@ function edit_row(row) {
   let cancel_button = dialog_buttons[1];
   let cancel_edit_func = () => {
     // Undo changes common for edit, add, and delete
-    undo_changes();
+    undo_changes_blog();
 
     // Remove event listeners
     ok_button.removeEventListener('click', ok_edit_func);
@@ -228,7 +228,7 @@ function delete_row(row) {
     textarea_element.removeAttribute("style");
 
     // Undo changes common for edit, add, and delete
-    undo_changes();
+    undo_changes_blog();
 
     // Remove event listeners
     ok_button.removeEventListener('click', ok_delete_func);
@@ -248,7 +248,7 @@ function delete_row(row) {
     textarea_element.removeAttribute("style");
 
     // Undo changes common for edit, add, and delete
-    undo_changes();
+    undo_changes_blog();
 
     // Remove event listeners
     ok_button.removeEventListener('click', ok_delete_func);
@@ -291,18 +291,12 @@ function add_required() {
   textarea_element.setAttribute("required", "");
 }
 
-function undo_changes() {
-  let dialog_element = document.querySelector("dialog");
-  let body_element = document.querySelector("body");
+function undo_changes_blog() {
+  // Make dialog invisible, make everything else clickable and undim
+  undo_changes();
+
   let input_elements = document.querySelectorAll("dialog input");
   let textarea_element = document.querySelector("dialog textarea");
-
-  // Make dialog invisible
-  dialog_element.removeAttribute("open");
-  dialog_element.removeAttribute("style");
-
-  // Make everything clickable again
-  body_element.removeAttribute("style");
 
   // Make input empty
   input_elements[0].value = "";
@@ -313,7 +307,4 @@ function undo_changes() {
   input_elements[0].removeAttribute("required");
   input_elements[1].removeAttribute("required");
   textarea_element.removeAttribute("required");
-
-  // Undim everything
-  opacity_change(1);
 }
