@@ -49,18 +49,20 @@ function add_rows_table(num_id, title, date, summary) {
   edit_button.appendChild(document.createTextNode("Edit"));
   post_edit.appendChild(edit_button);
 
-  edit_button.addEventListener('click', () => {
+  let edit_func = () => {
     edit_row(table_row);
-  });
+  };
+  edit_button.addEventListener('click', edit_func);
 
   let post_delete = table_row.insertCell(4);
   let delete_button = document.createElement("button");
   delete_button.appendChild(document.createTextNode("Delete"));
   post_delete.appendChild(delete_button);
 
-  delete_button.addEventListener('click', () => {
+  let delete_func = () => {
     delete_row(table_row);
-  });
+  };
+  delete_button.addEventListener('click', delete_func);
 }
 
 function add_row() {
