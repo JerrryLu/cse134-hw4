@@ -7,11 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jerry Lu's Portfolio</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/crudStyle.css">
-    <link rel="stylesheet" href="css/browserStyle.css" media="(min-width: 640px)">
-    <link rel="stylesheet" href="css/mobileStyle.css" media="(max-width: 639.9px)">
-    <link rel="preload" href="/fonts/kaushanscript-regular.woff2" as="font" type="font/woff2" crossorigin>
     <script type="module" src="js/blog.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.0/purify.min.js"></script>
   </head>
@@ -20,15 +15,6 @@
 
     <header>
       <h1>Blog</h1>
-      <nav>
-        <ul class="navBar">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="projects.html">Projects</a></li> 
-          <li><a href="education.html">Education</a></li>
-          <li><a href="skills.html">Skills</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
     </header>
 
     <div class="mainContent">
@@ -52,15 +38,17 @@
       <button>Add Post</button><br>
 
       <dialog>
-        <h1></h1>
-        <p>Post Title:</p>
-        <input type="text">
-        <p>Post Date:</p>
-        <input type="date">
-        <p>Post Summary:</p>
-        <textarea></textarea><br><br>
-        <button>OK</button>
-        <button>Cancel</button>
+        <form onsubmit="return false;">
+          <h1>Delete</h1>
+          <label for="title">Post Title:</label>
+          <input type="text" id="title" name="title"><br>
+          <label for="date">Post Date:</label>
+          <input type="date" id="date" name="date"><br>
+          <label for="summary">Post Summary:</label>
+          <textarea id="summary" name="summary"></textarea><br><br>
+          <button type="submit">OK</button>
+          <button>Cancel</button>
+        </form>
       </dialog>
     </main>
 
