@@ -100,9 +100,9 @@ function add_row() {
     let num_id = Date.now();
     add_rows_table(num_id, row_title, row_date, row_summary);
     post_arr.push({num_id: num_id, 
-                    title: row_title, 
-                    date: row_date, 
-                    summary: row_summary});
+                   title: row_title, 
+                   date: row_date, 
+                   summary: row_summary});
     save_array();
 
     // Undo changes common for edit, add, and delete

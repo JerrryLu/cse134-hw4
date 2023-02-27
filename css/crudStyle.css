@@ -1,5 +1,6 @@
 :root {
   --table-head-color: #7da2ff;
+  --button-color: #d7e1fa;
 }
 
 @font-face {
@@ -29,6 +30,28 @@ td:hover {
   background-color:antiquewhite;
 }
 
+img[src="images/banner.webp"] {
+  height: 15px;
+}
+
+button {
+  border: 1px solid black;
+  border-radius: 6px;
+  background: linear-gradient(to right, gray 50%, transparent 50%) right;
+  background-size: 200% 100%;
+  transition: background 0.1s ease;
+  color: black;
+}
+
+button:hover {
+  background-position: left;
+  color: white;
+}
+
+th img {
+  height: 25px;
+}
+
 dialog input {
   margin-bottom: 2vh;
 }
@@ -37,6 +60,7 @@ th, td {
   border: 1px solid black;
   padding: 5px;
   word-wrap: break-word;
+  text-align: center;
 }
 
 label, dialog input, dialog textarea {
