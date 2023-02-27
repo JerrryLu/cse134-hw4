@@ -1,6 +1,6 @@
 :root {
   --table-head-color: #7da2ff;
-  --button-color: #d7e1fa;
+  --box-shadow-color: #b2b1b1;
 }
 
 @font-face {
@@ -15,15 +15,24 @@ h1 {
 
 table {
   border-spacing: 0px;
-  max-width: 90vw;
+  width: 90vw;
+  border-bottom: 3px outset var(--table-head-color);
+  box-shadow: -1px 1px 2px 2px var(--box-shadow-color);
+  margin: auto;
 }
 
 th {
-  background-color: var(--table-head-color);
+  background-image: linear-gradient(#c3d4ff, var(--table-head-color));
 }
 
-.summary {
-  column-width: 70vw;
+dialog {
+  background-image: linear-gradient(rgb(251, 241, 227), rgb(254, 248, 239));
+  box-shadow: -1px 1px 2px 2px var(--box-shadow-color);
+  transition: box-shadow 0.3s ease;
+}
+
+dialog:hover {
+  box-shadow: 0px 0px 6px 3px var(--box-shadow-color);
 }
 
 td:hover {
@@ -46,6 +55,21 @@ button {
 button:hover {
   background-position: left;
   color: white;
+}
+
+dialog input, dialog textarea {
+  margin-top: 10px;
+  box-shadow: -1px 1px 2px 2px var(--box-shadow-color);
+  transition: box-shadow 0.3s ease;
+}
+
+dialog input:hover, dialog textarea:hover {
+  box-shadow: 0px 0px 6px 3px var(--box-shadow-color);
+}
+
+/* Makes the summary column have a max width */
+table tbody tr td:nth-child(3) {
+  max-width: 50vw;
 }
 
 th img {
