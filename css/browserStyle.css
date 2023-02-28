@@ -13,6 +13,14 @@ header {
   font-size: calc(var(--nav-bar-width)/7);
 }
 
+main {
+  margin: 2vw 2vw 0 2vw;
+}
+
+footer {
+  margin: 0 2vw 4vh 2vw;
+}
+
 section picture img {
   width: 65vw;
 }
@@ -30,10 +38,6 @@ header h1 {
   display: block;
   margin: 1vh 0 4vh 0;
   font-size: calc(var(--nav-bar-width)/5);
-}
-
-.mainContent {
-  margin: 2vw 2vw 4vh 2vw;
 }
 
 .navBar {

@@ -13,6 +13,14 @@ header {
   font-size: calc(var(--nav-bar-height)/4);
 }
 
+main {
+  margin: 2vw 5vw 0 5vw;
+}
+
+footer {
+  margin: 0 5vw 4vh 5vw;
+}
+
 section picture img {
   width: 70vw;
 }
@@ -36,10 +44,6 @@ img[src="images/Jerry_Lu_Face.jpg"] {
 picture img {
   display: block;
   margin: auto;
-}
-
-.mainContent {
-  margin: 2vw 5vw 4vh 5vw;
 }
 
 .navBar {
