@@ -1,4 +1,4 @@
-window.onload = native_dialogs;
+document.addEventListener('DOMContentLoaded', native_dialogs);
 
 // Binds respective functions to click on buttons
 function native_dialogs() {

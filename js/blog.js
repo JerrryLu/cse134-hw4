@@ -1,6 +1,6 @@
-import {opacity_change, popup_edit, undo_changes} from './customdialogs.js';
+import {popup_edit, undo_changes} from './customdialogs.js';
 
-window.onload = main;
+document.addEventListener('DOMContentLoaded', main);
 
 let post_arr = JSON.parse(localStorage.getItem("cse-134-hw4"));
 
