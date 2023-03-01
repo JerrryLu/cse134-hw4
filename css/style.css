@@ -58,6 +58,7 @@ details {
 
 picture img, img[src="images/Jerry_Lu_Face.jpg"] {
   border: 10px solid var(--pic-border-color);
+  border-radius: 5px;
   border-style: outset double;
   box-shadow: -3px 3px 6px 3px var(--box-shadow-color);
   transition: box-shadow 0.3s ease;
@@ -110,7 +111,6 @@ main {
   flex-direction: column;
   flex: 1 1 0;
   margin: 0;
-  background: linear-gradient(white, rgb(255, 250, 244));
 }
 
 .navBar {
