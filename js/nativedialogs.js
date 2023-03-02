@@ -19,6 +19,7 @@ function alert_message() {
   let output_element = document.querySelector("output");
   output_element.innerHTML = "";
 
+  /* I found that setting the timeout to 0 sometimes didn't clear the output before displaying */
   setTimeout(() => {
     alert("Intruder Alert, Intruder Alert!");
   }, 10);
