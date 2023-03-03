@@ -4,7 +4,8 @@ Jerry Lu A15923516
 https://subtle-centaur-4c56ca.netlify.app/
     
 ## Files used for Native Dialogs:  
-* nativedialogs.html
+* nativedialogs.html  
+* js/nativedialogs.js
     
 ## Files used for Custom Dialogs:
 * customdialogs.html  
